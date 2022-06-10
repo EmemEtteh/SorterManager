@@ -1,4 +1,4 @@
-package com.sparta.ee.sortalgorithms;
+package com.sparta.ee.interfaces;
 
 public interface AlgorithmicFactory {
      int[] sortTheArray(int[] list);

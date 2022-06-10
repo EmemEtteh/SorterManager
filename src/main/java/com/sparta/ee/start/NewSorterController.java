@@ -62,7 +62,10 @@ public class NewSorterController {
             algoChoice = "BubbleSort";
         } else if (getChoice() == 2) {
             algoChoice = "InsertionSort";
-        } else {
+        } else if (getChoice() == 3) {
+            algoChoice = "BinaryTree";
+        }
+         else {
             algoChoice = "Not chosen";
         }
 
