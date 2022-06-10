@@ -1,6 +1,4 @@
-package com.sparta.ee;
-
-import com.sparta.ee.start.TakeInput;
+package com.sparta.ee.utils;
 
 import java.util.Random;
 

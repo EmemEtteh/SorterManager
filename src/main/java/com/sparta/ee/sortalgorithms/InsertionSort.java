@@ -1,7 +1,5 @@
 package com.sparta.ee.sortalgorithms;
 
-import com.sparta.ee.managers.AlgorithmicFactory;
-
 public class InsertionSort implements AlgorithmicFactory {
 
     @Override

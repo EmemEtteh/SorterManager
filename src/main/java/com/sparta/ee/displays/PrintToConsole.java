@@ -1,7 +1,6 @@
 package com.sparta.ee.displays;
 
 import com.sparta.ee.managers.SelectAlgorithm;
-import com.sparta.ee.start.TakeInput;
 
 import java.util.Arrays;
 
@@ -27,10 +26,15 @@ public class PrintToConsole {
 
     }
 
-    public static void printFinalInfo(int[] array, int[] sortedArray, int choice, String algorithmChoice) {
+    public static void printStartInfo(int[] array) {
         System.out.println("Unsorted array: " + Arrays.toString(array));
+    }
+
+
+    public static void printFinalInfo(int[] sortedArray, int choice, String algorithmChoice, long time) {
+
         System.out.println("Chosen algorithm and choice number: " + choice + ". " + algorithmChoice  );
         System.out.println("Sorted array: " + Arrays.toString(sortedArray));
-        System.out.println("Time taken: ");
+        System.out.println("Time taken (in nano seconds): " + time);
     }
 }

@@ -2,13 +2,14 @@ package com.sparta.ee;
 
 import com.sparta.ee.displays.PrintToConsole;
 import com.sparta.ee.managers.SelectAlgorithm;
-import com.sparta.ee.start.TakeInput;
+import com.sparta.ee.start.InputController;
+import com.sparta.ee.utils.RandomArrayGenerator;
 
 public class SorterController {
 
     private PrintToConsole view;
     private SelectAlgorithm model;
-    private static TakeInput takeInput;
+    private static InputController inputController;
     private RandomArrayGenerator randomGenerator;
 
     private int length;
@@ -47,12 +48,12 @@ public class SorterController {
 //    }
 
     public int collectChoice() {
-        this.choice = takeInput.chooseYourAlgorithm();
+        this.choice = inputController.chooseYourAlgorithm();
         return choice;
     }
 
     public int getLength() {
-        this.length = takeInput.chooseArrayLength();
+        this.length = inputController.chooseArrayLength();
 
         return length;
     }

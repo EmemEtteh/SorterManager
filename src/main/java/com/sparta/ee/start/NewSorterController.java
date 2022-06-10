@@ -1,18 +1,16 @@
 package com.sparta.ee.start;
 
-import com.sparta.ee.RandomArrayGenerator;
+import com.sparta.ee.utils.RandomArrayGenerator;
 
 import com.sparta.ee.displays.PrintToConsole;
 import com.sparta.ee.managers.SelectAlgorithm;
-
-
-import java.util.Arrays;
 
 public class NewSorterController {
 
     SelectAlgorithm controller = new SelectAlgorithm();
     private static int arrayLength;
     private static int choice;
+    private static long duration;
 
     private static int[] array = new int[getArrayLength()];
     private static int[] sortedArray = new int[getArrayLength()];
@@ -21,16 +19,23 @@ public class NewSorterController {
 
     public void runStuff() {
         PrintToConsole.printPreRunInfo();
-        choice = TakeInput.chooseYourAlgorithm();
+        choice = InputController.chooseYourAlgorithm();
 
         PrintToConsole.askForLength();
 
-        arrayLength = TakeInput.chooseArrayLength();
+        arrayLength = InputController.chooseArrayLength();
 
-        RandomArrayGenerator.createRandArray(getArrayLength()) ;
+
+        array = RandomArrayGenerator.createRandArray(getArrayLength()) ;
+        PrintToConsole.printStartInfo(array);
 
         setChoice(choice);
-        controller.chooseTheAlgorithm(getChoice(), getGeneratedArray());
+        long startTime = System.nanoTime();
+        sortedArray = controller.chooseTheAlgorithm(getChoice(), array);
+        long endTime = System.nanoTime();
+
+        long duration = (endTime-startTime);
+        setDuration(duration);
 
         String algoChoice = "Not chosen";
         if(getChoice() == 1) {
@@ -41,12 +46,12 @@ public class NewSorterController {
             algoChoice = "Not chosen";
         }
 
-        setGeneratedArray(array);
-        setSortedArray(sortedArray);
+//        setGeneratedArray(array);
+//        setSortedArray(sortedArray);
 
 
 
-        //PrintToConsole.printFinalInfo(getGeneratedArray(), getSortedArray(), getChoice(), algoChoice);
+        PrintToConsole.printFinalInfo(sortedArray, getChoice(), algoChoice, getDuration());
 
 
 
@@ -60,29 +65,38 @@ public class NewSorterController {
         return arrayLength;
     }
 
-    public static int[] getGeneratedArray() {
-        return array;
-    }
+//    public static int[] getGeneratedArray() {
+//        return array;
+//    }
+//
+//    public void setGeneratedArray(int[] theGeneratedArray) {
+//        array = theGeneratedArray;
+//    }
 
-    public void setGeneratedArray(int[] theGeneratedArray) {
-        array = theGeneratedArray;
-    }
+//    public static int[] getSortedArray() {
+//        return sortedArray;
+//    }
+//
+//    public void setSortedArray(int[] theSortedArray) {
+//        sortedArray = theSortedArray;
+//    }
 
-    public static int[] getSortedArray() {
-        return sortedArray;
-    }
-
-    public void setSortedArray(int[] theSortedArray) {
-        sortedArray = theSortedArray;
-    }
-
-    public static int getChoice() {
+    public int getChoice() {
         return choice;
     }
 
     public void setChoice(int chosenChoice) {
         choice = chosenChoice;
     }
+
+    public long getDuration() {
+        return duration;
+    }
+
+    public void setDuration(long sortDuration) {
+        duration = sortDuration;
+    }
+
 
 
 }

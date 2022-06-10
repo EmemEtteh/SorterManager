@@ -2,7 +2,7 @@ package com.sparta.ee.start;
 
 import java.util.Scanner;
 
-public class TakeInput {
+public class InputController {
 
     private int arrayLength;
 

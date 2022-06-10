@@ -1,13 +1,8 @@
 package com.sparta.ee.managers;
 
-import com.sparta.ee.RandomArrayGenerator;
 import com.sparta.ee.SorterController;
-import com.sparta.ee.displays.PrintToConsole;
 import com.sparta.ee.sortalgorithms.BubbleSort;
 import com.sparta.ee.sortalgorithms.InsertionSort;
-import com.sparta.ee.start.TakeInput;
-
-import java.io.IOException;
 
 public class SelectAlgorithm {
 

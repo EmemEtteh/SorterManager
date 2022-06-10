@@ -1,9 +1,6 @@
 package com.sparta.ee;
 
-import com.sparta.ee.displays.PrintToConsole;
-import com.sparta.ee.managers.SelectAlgorithm;
 import com.sparta.ee.start.NewSorterController;
-import com.sparta.ee.start.TakeInput;
 
 /**
  * Hello world!
