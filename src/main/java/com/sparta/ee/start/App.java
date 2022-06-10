@@ -1,4 +1,4 @@
-package com.sparta.ee;
+package com.sparta.ee.start;
 
 import com.sparta.ee.start.NewSorterController;
 
