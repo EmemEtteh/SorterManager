@@ -1,6 +1,17 @@
 package com.sparta.ee.sortalgorithms;
 
+import com.sparta.ee.loggers.LogsConfig;
+
+import java.io.IOException;
+import java.util.logging.FileHandler;
+import java.util.logging.Handler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class BubbleSort implements AlgorithmicFactory {
+
+    LogsConfig logger = new LogsConfig();
+
 
     @Override
     public int[] sortTheArray(int[] list) {
@@ -11,6 +22,7 @@ public class BubbleSort implements AlgorithmicFactory {
                 if (list[j] > list[j+1]) {
                     int temp;
                     temp = list[j];
+
                     list[j] = list[j+1];
                     list[j+1] = temp;
                 }

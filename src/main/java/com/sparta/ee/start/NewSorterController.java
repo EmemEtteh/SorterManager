@@ -8,6 +8,9 @@ import com.sparta.ee.utils.RandomArrayGenerator;
 import com.sparta.ee.displays.PrintToConsole;
 import com.sparta.ee.managers.SelectAlgorithm;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class NewSorterController {
 
     SelectAlgorithm controller = new SelectAlgorithm();
@@ -18,13 +21,14 @@ public class NewSorterController {
     private static int[] array = new int[getArrayLength()];
     private static int[] sortedArray = new int[getArrayLength()];
 
-
+    private static Logger logger = Logger.getLogger("Controller Logger");
 
     public void runStuff() throws InputIsTooLargeException, InvalidInputException, ZeroLengthInputException {
         PrintToConsole.printPreRunInfo();
 
         try {
             choice = InputController.chooseYourAlgorithm();
+
         } catch (InvalidInputException e) {
             throw new InvalidInputException("Options 1 to 4 were not chosen. Please do so next time");
         }

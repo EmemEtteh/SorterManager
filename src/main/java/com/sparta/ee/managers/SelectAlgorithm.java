@@ -4,41 +4,51 @@ import com.sparta.ee.exceptions.InvalidInputException;
 import com.sparta.ee.sortalgorithms.BubbleSort;
 import com.sparta.ee.sortalgorithms.InsertionSort;
 
+import java.io.IOException;
+import java.util.logging.FileHandler;
+import java.util.logging.Handler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class SelectAlgorithm {
 
-    //TakeInput takeInput = new TakeInput();
     BubbleSort bubble = new BubbleSort();
     InsertionSort insertion = new InsertionSort();
-    //RandomArrayGenerator generateArray = new RandomArrayGenerator();
 
+    private static Logger logger = Logger.getLogger("Algorithm Selection Logger");
 
-    //PrintToConsole displayResults = new PrintToConsole();
+    private static void createLog() {
+        try {
+            Handler fileHandler = new FileHandler(
+                    "src/main/java/com/sparta/ee/loggers/selectionLog.log", true);
 
-    //int userInput = takeInput.chooseYourAlgorithm();
-
-
-    //private int sortChoice;
-
+            logger.addHandler(fileHandler);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
     public int[] chooseTheAlgorithm(int choice, int[] array) throws InvalidInputException {
 
         switch (choice) {
+            case 0:
+
+                System.exit(0);
+
+
+
             case 1:
                 // run algorithm1 bubble
-
+                logger.log(Level.INFO, "checking the choice selected is 1", choice);
                 return bubble.sortTheArray(array) ;
 
             case 2:
                 // run algorithm2 insertion
-
+                logger.log(Level.INFO, "checking the choice selected is 2", choice);
                 return insertion.sortTheArray(array) ;
 
             case 3:
                 // run algorithm3 binary tree
                 break;
-
-            case 0:
-
-                System.exit(0);
 
 
         }
