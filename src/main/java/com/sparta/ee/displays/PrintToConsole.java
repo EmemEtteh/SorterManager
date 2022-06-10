@@ -22,7 +22,7 @@ public class PrintToConsole {
     }
 
     public static void askForLength() {
-        System.out.println("What length array would you like?");
+        System.out.println("What length array would you like? Please keep below 1000.");
 
     }
 
