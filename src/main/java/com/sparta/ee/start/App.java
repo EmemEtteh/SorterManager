@@ -1,5 +1,8 @@
 package com.sparta.ee.start;
 
+import com.sparta.ee.exceptions.InputIsTooLargeException;
+import com.sparta.ee.exceptions.InvalidInputException;
+import com.sparta.ee.exceptions.ZeroLengthInputException;
 import com.sparta.ee.start.NewSorterController;
 
 /**
@@ -17,7 +20,7 @@ public class App
 //    SorterController controller = new SorterController(view, model, start);
 
 
-    public static void main( String[] args ) {
+    public static void main( String[] args ) throws InvalidInputException, InputIsTooLargeException, ZeroLengthInputException {
 
         NewSorterController controller = new NewSorterController();
 

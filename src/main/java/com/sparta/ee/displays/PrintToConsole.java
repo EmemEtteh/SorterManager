@@ -17,7 +17,7 @@ public class PrintToConsole {
         System.out.println("Enter 1 for BubbleSort.");
         System.out.println("Enter 2 for InsertionSort.");
         System.out.println("Enter 3 for Binary Tree.");
-        System.out.println("Anything else will produce an error!!");
+        System.out.println("Anything else is invalid input!!");
 
     }
 

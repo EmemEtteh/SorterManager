@@ -1,5 +1,8 @@
 package com.sparta.ee.start;
 
+import com.sparta.ee.exceptions.InputIsTooLargeException;
+import com.sparta.ee.exceptions.InvalidInputException;
+import com.sparta.ee.exceptions.ZeroLengthInputException;
 import com.sparta.ee.utils.RandomArrayGenerator;
 
 import com.sparta.ee.displays.PrintToConsole;
@@ -17,14 +20,27 @@ public class NewSorterController {
 
 
 
-    public void runStuff() {
+    public void runStuff() throws InputIsTooLargeException, InvalidInputException, ZeroLengthInputException {
         PrintToConsole.printPreRunInfo();
-        choice = InputController.chooseYourAlgorithm();
+
+        try {
+            choice = InputController.chooseYourAlgorithm();
+        } catch (InvalidInputException e) {
+            throw new InvalidInputException("Options 1 to 4 were not chosen. Please do so next time");
+        }
+        if (choice ==  0) {
+            System.exit(0);
+        }
 
         PrintToConsole.askForLength();
 
-        arrayLength = InputController.chooseArrayLength();
-
+        try {
+            arrayLength = InputController.chooseArrayLength();
+        } catch (InputIsTooLargeException ex) {
+            throw new InputIsTooLargeException("Inputted length is too big");
+        } catch (ZeroLengthInputException e) {
+            throw new ZeroLengthInputException("Inputted length is 0 or less");
+        }
 
         array = RandomArrayGenerator.createRandArray(getArrayLength()) ;
         PrintToConsole.printStartInfo(array);

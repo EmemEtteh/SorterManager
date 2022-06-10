@@ -1,6 +1,6 @@
 package com.sparta.ee.managers;
 
-import com.sparta.ee.SorterController;
+import com.sparta.ee.exceptions.InvalidInputException;
 import com.sparta.ee.sortalgorithms.BubbleSort;
 import com.sparta.ee.sortalgorithms.InsertionSort;
 
@@ -11,7 +11,6 @@ public class SelectAlgorithm {
     InsertionSort insertion = new InsertionSort();
     //RandomArrayGenerator generateArray = new RandomArrayGenerator();
 
-    SorterController controller = new SorterController();
 
     //PrintToConsole displayResults = new PrintToConsole();
 
@@ -20,7 +19,7 @@ public class SelectAlgorithm {
 
     //private int sortChoice;
 
-    public int[] chooseTheAlgorithm(int choice, int[] array) {
+    public int[] chooseTheAlgorithm(int choice, int[] array) throws InvalidInputException {
 
         switch (choice) {
             case 1:
@@ -36,6 +35,11 @@ public class SelectAlgorithm {
             case 3:
                 // run algorithm3 binary tree
                 break;
+
+            case 0:
+
+                System.exit(0);
+
 
         }
 
